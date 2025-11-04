@@ -44,7 +44,7 @@ export default function SMSMessage() {
     if (!validate()) return;
 
     try {
-      const response = await fetch("https://api.moolre.com/open/sms/send", {
+      const response = await fetch("/api/sms", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

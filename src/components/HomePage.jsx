@@ -9,11 +9,9 @@ export default function HomePage() {
                 <div className="hidden md:flex gap-8 items-center">
                     <div className="font-Outfit w-1/2">
                         <h1 
-                           initial={{opacity: 0, x:-200}}
-                           whileInView={{ opacity: 1, x: 0}}
-                           transition={{ duration: 1, delay: 0.3}}
-                            className="text-white text-3xl">
-                            <span className="text-blue-900 font-semibold text-3xl">Scale Faster with Our Developer-First Payment APIs</span>
+                          className="text-white text-3xl"
+                        >
+                         <span className="text-blue-900 font-semibold text-3xl">Scale Faster with Our Developer-First Payment APIs</span>
                         </h1>
                         <p className="mt-1 text-lg">
                             From simple transfers to advanced disbursement systems — our APIs grow with your business.
