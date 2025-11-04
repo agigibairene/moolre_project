@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <header className="sticky top-0 px-6 py-4 z-50">
+    <header className="sticky top-0 px-12 bg-white py-4 z-50">
       <nav className="flex items-center justify-between">
           <img
             src="https://moolre.com/assets/svgs/MainPage-Section.svg"

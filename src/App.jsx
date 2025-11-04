@@ -1,5 +1,6 @@
 import HomePage from './components/HomePage';
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar';
+import SMSMessage from './components/SMS';
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <Navbar />
       <HomePage />
+      <SMSMessage />
     </>
   )
 }
