@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { toast } from "sonner";
+import { toast } from 'sonner';
 
 export default function SMSMessage() {
+
   const [formData, setFormData] = useState({
     recipient: "",
     message: "",
@@ -12,7 +13,8 @@ export default function SMSMessage() {
     message: "",
   });
 
-  function validate() {
+
+  function validate(){
     let valid = true;
     const newErrors = { recipient: "", message: "" };
 
@@ -20,7 +22,7 @@ export default function SMSMessage() {
       newErrors.recipient = "Recipient phone number is required.";
       valid = false;
     } else if (!/^\d{10,15}$/.test(formData.recipient)) {
-      newErrors.recipient = "Enter a valid phone number (10–15 digits).";
+      newErrors.recipient = "Enter a valid phone number (10 digits).";
       valid = false;
     }
 
@@ -31,49 +33,51 @@ export default function SMSMessage() {
 
     setErrors(newErrors);
     return valid;
-  }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: "" }));
+    setErrors((prev) => ({ ...prev, [name]: "" })); 
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validate()) return;
+  e.preventDefault();
+  if (!validate()) return;
 
-    try {
-      const response = await fetch("https://api.moolre.com/open/sms/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: 1,
-          senderid: "Moolre",
-          messages: [
-            {
-              recipient: formData.recipient,
-              message: formData.message,
-            },
-          ],
-        }),
-      });
+  try {
+    const response = await fetch('/api/send-sms', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        type: 1,
+        senderid: "Moolre",
+        messages: [
+          {
+            recipient: formData.recipient,
+            message: formData.message,
+          },
+        ],
+      }),
+    });
 
-      if (!response.ok) {
-        toast.error("Failed to send message");
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      console.log("SMS response:", data);
-
-      toast.success("Message sent successfully");
-      setFormData({ recipient: "", message: "" });
-    } catch (error) {
-      console.error("Error sending SMS:", error);
-      toast.error("Failed to send message");
+    if (!response.ok) {
+      toast.error('Failed to send message');
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  };
+    
+    toast.success('Message sent successfully');
+    const data = await response.json();
+    console.log(data);
+    setFormData({ recipient: "", message: "" });
+
+  } catch (error) {
+    toast.error('Failed to send message');
+    console.error(error);
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -98,7 +102,9 @@ export default function SMSMessage() {
             className={`w-full px-4 py-2 border ${
               errors.recipient ? "border-red-500" : "border-gray-300"
             } rounded-lg focus:outline-none focus:ring-2 ${
-              errors.recipient ? "focus:ring-red-400" : "focus:ring-indigo-400"
+              errors.recipient
+                ? "focus:ring-red-400"
+                : "focus:ring-indigo-400"
             }`}
           />
           {errors.recipient && (
@@ -119,7 +125,9 @@ export default function SMSMessage() {
             className={`w-full px-4 py-2 border ${
               errors.message ? "border-red-500" : "border-gray-300"
             } rounded-lg resize-none focus:outline-none focus:ring-2 ${
-              errors.message ? "focus:ring-red-400" : "focus:ring-indigo-400"
+              errors.message
+                ? "focus:ring-red-400"
+                : "focus:ring-indigo-400"
             }`}
           ></textarea>
           {errors.message && (
