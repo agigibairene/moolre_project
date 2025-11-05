@@ -72,9 +72,7 @@ export default function SMSMessage() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json();
       toast.success("Message sent successfully");
-      console.log("SMS Response:", data);
       setFormData({ recipient: "", message: "" });
     } catch (error) {
       console.error("Error sending SMS:", error);

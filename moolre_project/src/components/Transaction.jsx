@@ -158,6 +158,7 @@ export default function Transaction() {
                   <input
                     type="text"
                     name="receiver"
+                    placeholder="233501234567"
                     value={formData.receiver}
                     onChange={handleChange}
                     className={`w-full border rounded-lg p-2 focus:ring-2 focus:outline-none ${
@@ -180,6 +181,7 @@ export default function Transaction() {
                   <input
                     type="text"
                     name="accountnumber"
+                    placeholder="Enter account num.."
                     value={formData.accountnumber}
                     onChange={handleChange}
                     className={`w-full border rounded-lg p-2 focus:ring-2 focus:outline-none ${
@@ -253,6 +255,7 @@ export default function Transaction() {
                 <input
                     type="number"
                     name="amount"
+                    placeholder='Enter amount'
                     value={formData.amount}
                     onChange={handleChange}
                     className={`w-full border rounded-lg p-2 focus:ring-2 focus:outline-none ${
@@ -273,6 +276,7 @@ export default function Transaction() {
                 <input
                     type="text"
                     name="externalref"
+                    placeholder='Enter any unique ID with numbers ...'
                     value={formData.externalref}
                     onChange={handleChange}
                     className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
