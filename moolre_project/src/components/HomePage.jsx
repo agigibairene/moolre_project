@@ -1,6 +1,14 @@
 import homeImg from "../assets/home_img.png";
 
 export default function HomePage() {
+    
+    function handleScroll(sectionId){
+        const section = document.getElementById(sectionId);
+        if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
 
     return (
         <section className="bg-bgColor max-h-full">
@@ -14,10 +22,15 @@ export default function HomePage() {
                          <span className="text-blue-900 font-semibold text-3xl">Scale Faster with Our Developer-First Payment APIs</span>
                         </h1>
                         <p className="mt-1 text-lg">
-                            From simple transfers to advanced disbursement systems — our APIs grow with your business.
+                            From simple transfers to advanced transactions systems — our APIs grow with your business.
                         </p>
 
-                        <button className="mt-4 cursor-pointer rounded-lg outline-0 border-0 px-2 py-2 bg-[#fcba37] transition-colors">Send an SMS</button>
+                        <button
+                           onClick={() => handleScroll("send_sms")}
+                           className="mt-6 cursor-pointer rounded-lg outline-0 border-0 px-4 py-2 bg-blue-900 text-white font-semibold hover:bg-blue-800 hover:scale-105 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg"
+                        >
+                        Send an SMS
+                        </button>
                        
                     </div>
 
