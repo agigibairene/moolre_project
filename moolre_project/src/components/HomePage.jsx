@@ -19,7 +19,7 @@ export default function HomePage() {
                         <h1 
                           className="text-white text-3xl"
                         >
-                         <span className="text-blue-900 font-semibold text-3xl">Scale Faster with Our Developer-First Payment APIs</span>
+                         <span className="text-blue-900 font-bold text-3xl">Scale Faster with Our Developer-First Payment APIs</span>
                         </h1>
                         <p className="mt-1 text-lg">
                             From simple transfers to advanced transactions systems — our APIs grow with your business.
