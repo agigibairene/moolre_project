@@ -14,7 +14,7 @@ export default function HomePage() {
         <section className="bg-bgColor max-h-full">
             <div className="px-8 md:px-12 pt-12 pb-8">
 
-                <div className="hidden md:flex gap-8 items-center">
+                <div className="flex gap-8 items-center">
                     <div className="font-Outfit w-1/2">
                         <h1 
                           className="text-white text-3xl"
