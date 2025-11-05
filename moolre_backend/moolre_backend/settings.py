@@ -126,3 +126,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_CREDENTIALS = True
+
+ALLOWED_HOSTS = [
+    'moolre-project.onrender.com',
+    'moolre-project.vercel.app',
+    'localhost',
+    '127.0.0.1'
+]
