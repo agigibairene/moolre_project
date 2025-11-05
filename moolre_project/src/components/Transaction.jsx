@@ -92,6 +92,7 @@ export default function Transaction() {
     }
   };
 
+
   const handleTransfer = async () => {
     if (!isValidated) {
       toast.error("Please validate the account before transferring.");
@@ -234,89 +235,89 @@ export default function Transaction() {
               </form>
             )}
 
-            {showRecipientName && validationData?.recipient_name && (
-              <div className="mt-4 bg-blue-50 border border-blue-200 text-blue-900 p-3 rounded-lg text-center transition-opacity duration-500">
-                <p className="font-semibold">Recipient:</p>
-                <p className="text-lg">{validationData.recipient_name}</p>
-              </div>
-            )}
-
+    
             {/* Transaction Form */}
             {isValidated && (
-              <div className="space-y-4 mt-6">
+            <div className="space-y-4 mt-6">
+                {showRecipientName && validationData?.data && (
+                <div className="mb-6 bg-blue-50 border border-blue-200 text-blue-900 p-3 rounded-lg text-center shadow-sm transition-opacity duration-500">
+                    <p className="font-semibold text-sm uppercase tracking-wide text-blue-800">Recipient</p>
+                    <p className="text-xl font-semibold">{validationData.data}</p>
+                </div>
+                )}
+
                 <div>
-                  <label className="block text-sm font-medium text-gray-600">
+                <label className="block text-sm font-medium text-gray-600">
                     Amount (GHS)
-                  </label>
-                  <input
+                </label>
+                <input
                     type="number"
                     name="amount"
                     value={formData.amount}
                     onChange={handleChange}
                     className={`w-full border rounded-lg p-2 focus:ring-2 focus:outline-none ${
-                      errors.amount
+                    errors.amount
                         ? "border-red-500 focus:ring-red-300"
                         : "border-gray-300 focus:ring-indigo-400"
                     }`}
-                  />
-                  {errors.amount && (
+                />
+                {errors.amount && (
                     <p className="text-red-500 text-sm mt-1">{errors.amount}</p>
-                  )}
+                )}
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-600">
+                <label className="block text-sm font-medium text-gray-600">
                     External Ref
-                  </label>
-                  <input
+                </label>
+                <input
                     type="text"
                     name="externalref"
                     value={formData.externalref}
                     onChange={handleChange}
                     className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-                  />
+                />
                 </div>
 
                 <button
-                  type="button"
-                  onClick={handleTransfer}
-                  disabled={loadingTransfer}
-                  className={`w-full bg-blue-900 hover:bg-blue-800 text-white font-medium py-2 rounded-lg transition duration-200 flex items-center justify-center ${
-                    loadingTransfer
-                      ? "opacity-70 cursor-not-allowed"
-                      : "cursor-pointer"
-                  }`}
+                type="button"
+                onClick={handleTransfer}
+                disabled={loadingTransfer}
+                className={`w-full bg-blue-900 hover:bg-blue-800 text-white font-medium py-2 rounded-lg transition duration-200 flex items-center justify-center ${
+                    loadingTransfer ? "opacity-70 cursor-not-allowed" : "cursor-pointer"
+                }`}
                 >
-                  {loadingTransfer ? (
+                {loadingTransfer ? (
                     <>
-                      <svg
+                    <svg
                         className="animate-spin h-5 w-5 mr-2 text-white"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                      >
+                    >
                         <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
                         ></circle>
                         <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
                         ></path>
-                      </svg>
-                      Processing...
+                    </svg>
+                    Processing...
                     </>
-                  ) : (
+                ) : (
                     "Proceed with Transfer"
-                  )}
+                )}
                 </button>
-              </div>
+            </div>
             )}
+
           </div>
         </div>
       </div>
