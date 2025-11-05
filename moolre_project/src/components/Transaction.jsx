@@ -62,7 +62,7 @@ export default function Transaction() {
     setLoadingValidate(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/validate/", {
+      const res = await fetch("https://moolre-project.onrender.com/api/validate/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -106,7 +106,7 @@ export default function Transaction() {
     setLoadingTransfer(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/transact/", {
+      const res = await fetch("https://moolre-project.onrender.com/api/transact/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

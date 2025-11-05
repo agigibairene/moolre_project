@@ -50,7 +50,7 @@ export default function SMSMessage() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/proxy/", {
+      const response = await fetch("https://moolre-project.onrender.com/api/proxy/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
