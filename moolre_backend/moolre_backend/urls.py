@@ -23,4 +23,5 @@ urlpatterns = [
     path('api/proxy/', views.sms_proxy),
     path('api/validate/', views.validate_proxy),
     path('api/transact/', views.transaction_proxy),
+    path('', views.index)
 ]
