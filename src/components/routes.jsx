@@ -8,7 +8,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-API-VASKEY': process.env.VITE_API_KEYS,
+        'X-API-VASKEY': import.meta.env.VITE_API_KEYS,
       },
       body: JSON.stringify(req.body),
     });
