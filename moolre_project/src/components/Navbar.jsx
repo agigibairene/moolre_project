@@ -17,7 +17,7 @@ export default function Navbar() {
 
         <button
           onClick={() => handleScroll("transact")}
-          className="rounded-lg px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 bg-blue-900 text-white text-sm sm:text-base font-medium hover:bg-blue-800 hover:scale-105 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg"
+          className="rounded-lg px-3 sm:px-4 md:px-5 py-1.5 cursor-pointer sm:py-2 bg-blue-900 text-white text-sm sm:text-base font-medium hover:bg-blue-800 hover:scale-105 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg"
         >
           Transaction
         </button>

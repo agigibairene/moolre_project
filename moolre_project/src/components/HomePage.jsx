@@ -25,7 +25,7 @@ export default function HomePage() {
 
             <button
               onClick={() => handleScroll("send_sms")}
-              className="mt-6 rounded-lg px-5 py-2.5 bg-blue-900 text-white font-semibold hover:bg-blue-800 hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+              className="mt-6 rounded-lg px-5 py-2.5 bg-blue-900 text-white font-semibold cursor-pointer hover:bg-blue-800 hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
             >
               Send an SMS
             </button>
